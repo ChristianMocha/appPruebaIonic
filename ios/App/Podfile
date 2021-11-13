@@ -1,0 +1,32 @@
+platform :ios, '12.0'
+use_frameworks!
+#pod 'Firebase/Analytics
+
+# workaround to avoid Xcode caching of Pods that requires
+# Product -> Clean Build Folder after new Cordova plugins installed
+# Requires CocoaPods 1.6 or newer
+install! 'cocoapods', :disable_input_output_paths => true
+
+
+def capacitor_pods
+  
+  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
+  pod 'CapacitorHaptics', :path => '../../node_modules/@capacitor/haptics'
+  pod 'CapacitorKeyboard', :path => '../../node_modules/@capacitor/keyboard'
+  pod 'CapacitorStatusBar', :path => '../../node_modules/@capacitor/status-bar'
+end
+
+# add the Firebase pod for Google Analytics
+pod 'Firebase/Analytics'
+# or pod ‘Firebase/AnalyticsWithoutAdIdSupport’
+# for Analytics without IDFA collection capability
+
+# add pods for any other desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
+
+target 'App' do
+  capacitor_pods
+  # Add your Pods here
+end

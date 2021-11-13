@@ -1,0 +1,6 @@
+{
+	"appId": "com.efecode.appprueba",
+	"appName": "appPrueba",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
